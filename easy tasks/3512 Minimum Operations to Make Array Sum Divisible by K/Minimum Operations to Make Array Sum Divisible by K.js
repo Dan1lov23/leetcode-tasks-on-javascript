@@ -41,6 +41,23 @@ function minimumOperationsToMakeArraySumDivisibleByK(nums, k) {
 
     let count = 0;
 
+    function getNumsSum(nums, subs) {
+
+        let sum = 0;
+
+        for (let a = 0; a < nums.length; a++) {
+            sum += nums[a];
+        }
+
+        return sum - subs;
+
+    }
+
+    while (getNumsSum(nums, count) % k !== 0) {
+        count++;
+    }
+
+    return count;
 
 }
 
