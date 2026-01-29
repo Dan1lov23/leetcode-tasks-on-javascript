@@ -8,8 +8,6 @@
 //
 // abs(x) denotes the absolute value of x.
 //
-//
-//
 // Example 1:
 //
 // Input: n = 25
@@ -53,7 +51,6 @@ function mirrorDistanceOfAnInteger(n) {
     } else {
         return result;
     }
-
 }
 
 console.log(mirrorDistanceOfAnInteger(25));
