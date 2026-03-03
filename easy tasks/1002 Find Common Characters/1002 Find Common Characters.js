@@ -15,36 +15,34 @@
 
 function FindCommonCharacter(words) {
 
-    const includeCheckFunction = (arr, element, index) => {
-
+    let minFreq = {};
+    for (let ch of words[0]) {
+        minFreq[ch] = (minFreq[ch] || 0) + 1;
     }
 
-    let resultArr = [];
-    let splitWordsArr = [];
+    for (let i = 1; i < words.length; i++) {
+        const freq = {};
+        for (let ch of words[i]) {
+            freq[ch] = (freq[ch] || 0) + 1;
+        }
 
-    for (let a = 0; a < words.length; a++) {
-        splitWordsArr.push(words[a].split(''));
-    }
-
-    for (let a = 0; a < words.length; a++) {
-        for (let b = 0; b < words[a].length; b++) {
-
-            let marker = true;
-
-            for (let c = 0; c < splitWordsArr.length; c++) {
-                if (!splitWordsArr[c].includes(words[a][b])) {
-                    marker = false;
-                }
-            }
-
-            if (marker && !resultArr.includes(words[a][b])) {
-                resultArr.push(words[a][b]);
+        for (let ch in minFreq) {
+            if (freq[ch]) {
+                minFreq[ch] = Math.min(minFreq[ch], freq[ch]);
+            } else {
+                delete minFreq[ch];
             }
         }
     }
 
-    return resultArr;
+    const result = [];
+    for (let ch in minFreq) {
+        for (let i = 0; i < minFreq[ch]; i++) {
+            result.push(ch);
+        }
+    }
 
+    return result;
 }
 
 console.log(FindCommonCharacter(["bella","label","roller"]));
