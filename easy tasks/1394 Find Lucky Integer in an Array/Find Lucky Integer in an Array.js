@@ -38,10 +38,7 @@ function FindLuckyIntegerInAnArray(arr) {
             }
         }
 
-        console.log(maxElement, element.element, counter);
-
         if (counter === element.element && element.element > maxElement) {
-            console.log(maxElement);
             maxElement = element.element;
         }
 
