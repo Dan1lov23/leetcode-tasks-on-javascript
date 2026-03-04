@@ -46,7 +46,7 @@ function FindLuckyIntegerInAnArray(arr) {
 
     }
 
-    if (maxElement === "none") {
+    if (maxElement === 0) {
         return -1;
     } else {
         return maxElement;
